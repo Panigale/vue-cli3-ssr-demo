@@ -17,5 +17,5 @@ yarn build
 
 ### Run Server
 ```
-node server.js
+node server
 ```
