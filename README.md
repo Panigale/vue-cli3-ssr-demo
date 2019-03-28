@@ -1,4 +1,4 @@
-# god-ssr
+# vue-ssr-demo
 
 ## Project setup
 ```
