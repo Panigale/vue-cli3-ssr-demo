@@ -2,29 +2,20 @@
 
 ## Project setup
 ```
-yarn install
+git clone https://github.com/Panigale/vue-ssr-demo.git
 ```
 
-### Compiles and hot-reloads for development
+### Install packages
 ```
-yarn run serve
+yarn
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+yarn build
 ```
 
-### Run your tests
+### Run Server
 ```
-yarn run test
+node server.js
 ```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# vue-ssr-demo

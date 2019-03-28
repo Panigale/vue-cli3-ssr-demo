@@ -1,10 +1,10 @@
-const { declare } = require('@babel/helper-plugin-utils')
+const { declare } = require('@babel/helper-plugin-utils');
 
-module.exports = declare(api => {
-  api.assertVersion(7)
+module.exports = declare((api) => {
+  api.assertVersion(7);
 
   // see docs about api at https://babeljs.io/docs/en/config-files#apicache
-  const node = api.cache.using(() => process.env.WEBPACK_TARGET === 'node')
+  const node = api.cache.using(() => process.env.WEBPACK_TARGET === 'node');
 
   return {
     presets: [
@@ -12,12 +12,12 @@ module.exports = declare(api => {
         '@vue/app',
         {
           targets: {
-            node: 'current'
+            node: 'current',
           },
-          useBuiltIns: false
-        }
+          useBuiltIns: false,
+        },
       ],
-      !node && '@vue/app'
-    ].filter(Boolean)
-  }
-})
+      !node && '@vue/app',
+    ].filter(Boolean),
+  };
+});

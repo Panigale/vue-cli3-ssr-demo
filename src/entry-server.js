@@ -1,33 +1,17 @@
-import Vue from 'vue';
-import App from './App.vue';
-import createRouter from './router';
+import createApp from './main';
 
-Vue.config.productionTip = false;
+export default context => new Promise((resolve, reject) => {
+  const { app, router } = createApp();
 
-function createApp() {
-    const router = createRouter();
-    const app = new Vue({
-        router,
-        render: h => h(App),
-    });
-    return { app, router };
-}
+  router.push(context.url);
 
+  router.onReady(() => {
+    const matchedComponents = router.getMatchedComponents();
 
-export default context => {
-    return new Promise((resolve, reject) => {
-        const { app, router } = createApp()
+    if (!matchedComponents.length) {
+      return reject({ code: 404 });
+    }
 
-        router.push(context.url)
-
-        router.onReady(() => {
-            const matchedComponents = router.getMatchedComponents()
-
-            if (!matchedComponents.length) {
-                return reject({ code: 404 })
-            }
-
-            resolve(app)
-        }, reject)
-    })
-}
+    resolve(app);
+  }, reject);
+});
